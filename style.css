@@ -475,17 +475,72 @@ footer {
         padding: 15px 20px;
     }
 
-    .nav-links {
-        display: none;
+    .hamburger {
+        display: block;
+        z-index: 1001;
     }
 
-    /* Simplified for now */
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background-color: var(--text-primary);
+    }
+
+    /* Hamburger Animation */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        /* Below navbar */
+        gap: 0;
+        flex-direction: column;
+        background-color: rgba(15, 23, 42, 0.98);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
     h1 {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
     }
 
     .header-content h1 {
         font-size: 2.2rem;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
     }
 
     .resume-header {
@@ -496,11 +551,17 @@ footer {
 
     .contact-info {
         flex-direction: column;
-        gap: 8px;
+        gap: 12px;
     }
 
     .resume-container {
         padding: 0 20px;
+        margin-top: 100px;
+    }
+
+    #skills,
+    #contact {
+        padding: 80px 20px;
     }
 }
 
